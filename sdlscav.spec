@@ -10,7 +10,7 @@ Release:	%{release}
 Group:	Games/Arcade
 URL:	http://www.xdr.com/dash/scavenger.html
 License:	GPL
-BuildRequires:	libxorg-x11-devel libSDL-devel rpm-build
+BuildRequires:	libSDL-devel rpm-build
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 
