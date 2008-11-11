@@ -1,25 +1,17 @@
-%define name	sdlscav
-%define version 145
-%define	Summary	Cool arcade/thinking game very much like Lode Runner
-%define release %mkrel 2
-Summary:	%{Summary}
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-
-Group:	Games/Arcade
-URL:	http://www.xdr.com/dash/scavenger.html
+Summary:	Cool arcade/thinking game very much like Lode Runner
+Name:		sdlscav
+Version:	145
+Release:	%mkrel 1
+Group:		Games/Arcade
 License:	GPL
-BuildRequires:	SDL-devel rpm-build
+URL:		http://www.xdr.com/dash/scavenger.html
+Source:		http://www.xdr.com/dash/%{name}-%{version}.tar.bz2
+Source10:	%{name}.16.xpm
+Source11:	%{name}.32.xpm
+Source12:	%{name}.48.xpm
+Patch1:		sdlscav-145-datapath.patch
+BuildRequires:	SDL-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-
-
-Source: http://www.xdr.com/dash/%name-%version.tar.bz2
-Source10: %name.16.xpm
-Source11: %name.32.xpm
-Source12: %name.48.xpm
-
-Patch1: sdlscav-145-datapath.patch
 
 %description
 SDL Scavenger is a cool arcade/thinking game very much like Lode Runner.
@@ -36,19 +28,14 @@ to solve.
 %make
 
 %install
-mkdir -p %buildroot%_gamesbindir %buildroot%_gamesdatadir/%name
-install -m 0755 %name %buildroot%_gamesbindir/
-for f in data/*
-do
-	install -m 0644 $f %buildroot%_gamesdatadir/%name/
-done
+rm -rf %{buildroot}
 
-mkdir -p %buildroot/%_menudir
-cat << EOF > %buildroot/%_menudir/%name
-?package(%name):
+mkdir -p %{buildroot}%_gamesbindir %{buildroot}%_gamesdatadir/%{name}
+install -m 0755 %{name} %{buildroot}%_gamesbindir/
+for f in data/*; do install -m 0644 $f %{buildroot}%_gamesdatadir/%{name}/; done
 
 mkdir -p %{buildroot}%{_datadir}/applications
-cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
+cat > %{buildroot}%{_datadir}/applications/%{name}.desktop <<EOF
 [Desktop Entry]
 Name="SDL Scavenger" \
 Comment="Cool arcade/thinking game very much like Lode Runner"
@@ -60,25 +47,31 @@ StartupNotify=true
 Categories=Game;ArcadeGame;
 EOF
 
-mkdir -p %buildroot%_miconsdir
-mkdir -p %buildroot%_liconsdir
-install -m 0644 %SOURCE10 %buildroot%_miconsdir/%name.xpm
-install -m 0644 %SOURCE11 %buildroot%_iconsdir/%name.xpm
-install -m 0644 %SOURCE12 %buildroot%_liconsdir/%name.xpm
+mkdir -p %{buildroot}%_miconsdir
+mkdir -p %{buildroot}%_liconsdir
+install -m 0644 %SOURCE10 %{buildroot}%_miconsdir/%{name}.xpm
+install -m 0644 %SOURCE11 %{buildroot}%_iconsdir/%{name}.xpm
+install -m 0644 %SOURCE12 %{buildroot}%_liconsdir/%{name}.xpm
 
+%if %mdkversion < 2009
 %post
-%update_menus
+%{update_menus}
+%endif
 
+%if %mdkversion < 2009
 %postun
-%clean_menus
+%{clean_menus}
+%endif
+
+%clean
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
 %doc README DOC
 %_gamesbindir/*
-%_gamesdatadir/%name
-%_menudir/%name
-%_miconsdir/%name.xpm
-%_iconsdir/%name.xpm
-%_liconsdir/%name.xpm
-
+%_gamesdatadir/%{name}
+%{_datadir}/applications/*.desktop
+%_miconsdir/%{name}.xpm
+%_iconsdir/%{name}.xpm
+%_liconsdir/%{name}.xpm
