@@ -47,6 +47,8 @@ mkdir -p %buildroot/%_menudir
 cat << EOF > %buildroot/%_menudir/%name
 ?package(%name):
 
+mkdir -p %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
 [Desktop Entry]
 Name="SDL Scavenger" \
 Comment="Cool arcade/thinking game very much like Lode Runner"
