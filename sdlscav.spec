@@ -1,7 +1,7 @@
 %define name	sdlscav
 %define version 145
 %define	Summary	Cool arcade/thinking game very much like Lode Runner
-%define release %mkrel 1
+%define release %mkrel 2
 Summary:	%{Summary}
 Name:		%{name}
 Version:	%{version}
@@ -10,7 +10,7 @@ Release:	%{release}
 Group:	Games/Arcade
 URL:	http://www.xdr.com/dash/scavenger.html
 License:	GPL
-BuildRequires:	libSDL-devel rpm-build
+BuildRequires:	SDL-devel rpm-build
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 
@@ -45,9 +45,17 @@ done
 
 mkdir -p %buildroot/%_menudir
 cat << EOF > %buildroot/%_menudir/%name
-?package(%name):command="soundwrapper %name" icon="%name.xpm" \
-  needs="x11" section="Amusement/Arcade" title="SDL Scavenger" \
-  longtitle="Cool arcade/thinking game very much like Lode Runner"
+?package(%name):
+
+[Desktop Entry]
+Name="SDL Scavenger" \
+Comment="Cool arcade/thinking game very much like Lode Runner"
+Exec=%{_bindir}/%{name}
+Icon=%{name}
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Game;ArcadeGame;
 EOF
 
 mkdir -p %buildroot%_miconsdir
