@@ -9,7 +9,8 @@ Source:		http://www.xdr.com/dash/%{name}-%{version}.tar.bz2
 Source10:	%{name}.16.xpm
 Source11:	%{name}.32.xpm
 Source12:	%{name}.48.xpm
-Patch1:		sdlscav-145-datapath.patch
+Patch0:		%{name}-145-optflags.patch
+Patch1:		%{name}-145-datapath.patch
 BuildRequires:	SDL-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -22,10 +23,11 @@ to solve.
 
 %prep
 %setup -q
+%patch0 -p1
 %patch1 -p1
 
 %build
-%make
+%make OPT="%{optflags}"
 
 %install
 rm -rf %{buildroot}
