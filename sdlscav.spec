@@ -7,10 +7,12 @@ Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 
-Group: Games/Arcade
-URL: http://www.xdr.com/dash/scavenger.html
-License: GPL
-BuildRequires: libxorg-x11-devel libSDL-devel rpm-build
+Group:	Games/Arcade
+URL:	http://www.xdr.com/dash/scavenger.html
+License:	GPL
+BuildRequires:	libxorg-x11-devel libSDL-devel rpm-build
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+
 
 Source: http://www.xdr.com/dash/%name-%version.tar.bz2
 Source10: %name.16.xpm
@@ -38,7 +40,7 @@ mkdir -p %buildroot%_gamesbindir %buildroot%_gamesdatadir/%name
 install -m 0755 %name %buildroot%_gamesbindir/
 for f in data/*
 do
-    install -m 0644 $f %buildroot%_gamesdatadir/%name/
+	install -m 0644 $f %buildroot%_gamesdatadir/%name/
 done
 
 mkdir -p %buildroot/%_menudir
@@ -61,6 +63,7 @@ install -m 0644 %SOURCE12 %buildroot%_liconsdir/%name.xpm
 %clean_menus
 
 %files
+%defattr(-,root,root)
 %doc README DOC
 %_gamesbindir/*
 %_gamesdatadir/%name
