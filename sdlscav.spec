@@ -39,7 +39,7 @@ for f in data/*; do install -m 0644 $f %{buildroot}%_gamesdatadir/%{name}/; done
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/%{name}.desktop <<EOF
 [Desktop Entry]
-Name="SDL Scavenger" \
+Name="SDL Scavenger"
 Comment="Cool arcade/thinking game very much like Lode Runner"
 Exec=%{_bindir}/%{name}
 Icon=%{name}
@@ -55,12 +55,12 @@ install -m 0644 %SOURCE10 %{buildroot}%_miconsdir/%{name}.xpm
 install -m 0644 %SOURCE11 %{buildroot}%_iconsdir/%{name}.xpm
 install -m 0644 %SOURCE12 %{buildroot}%_liconsdir/%{name}.xpm
 
-%if %mdkversion < 2009
+%if %mdkversion < 200900
 %post
 %{update_menus}
 %endif
 
-%if %mdkversion < 2009
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
 %endif
