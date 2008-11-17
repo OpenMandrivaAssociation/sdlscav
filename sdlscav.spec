@@ -41,7 +41,7 @@ cat > %{buildroot}%{_datadir}/applications/%{name}.desktop <<EOF
 [Desktop Entry]
 Name="SDL Scavenger"
 Comment="Cool arcade/thinking game very much like Lode Runner"
-Exec=%{_bindir}/%{name}
+Exec=%{_gamesbindir}/%{name}
 Icon=%{name}
 Terminal=false
 Type=Application
