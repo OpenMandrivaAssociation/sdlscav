@@ -1,7 +1,7 @@
 Summary:	Cool arcade/thinking game very much like Lode Runner
 Name:		sdlscav
 Version:	145
-Release:	%mkrel 2
+Release:	%mkrel 3
 Group:		Games/Arcade
 License:	GPL
 URL:		http://www.xdr.com/dash/scavenger.html
@@ -39,8 +39,8 @@ for f in data/*; do install -m 0644 $f %{buildroot}%_gamesdatadir/%{name}/; done
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/%{name}.desktop <<EOF
 [Desktop Entry]
-Name="SDL Scavenger"
-Comment="Cool arcade/thinking game very much like Lode Runner"
+Name=SDL Scavenger
+Comment=Cool arcade/thinking game very much like Lode Runner
 Exec=%{_gamesbindir}/%{name}
 Icon=%{name}
 Terminal=false
