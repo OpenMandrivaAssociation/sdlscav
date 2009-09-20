@@ -1,7 +1,7 @@
 Summary:	Cool arcade/thinking game very much like Lode Runner
 Name:		sdlscav
 Version:	145
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		Games/Arcade
 License:	GPL
 URL:		http://www.xdr.com/dash/scavenger.html
