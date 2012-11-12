@@ -1,0 +1,11 @@
+diff -Naur sdlscav-145/Makefile sdlscav-145.tpg/Makefile
+--- sdlscav-145/Makefile	2008-04-07 02:01:06.000000000 +0000
++++ sdlscav-145.tpg/Makefile	2008-11-11 21:51:46.000000000 +0000
+@@ -1,6 +1,6 @@
+ CC	= gcc
+ ###CFLAGS	= -Wall -O2 -I/usr/local/include/SDL -I/usr/include/SDL -D_REENTRANT
+-CFLAGS	= -O2 `sdl-config --cflags`
++CFLAGS = $(OPT) -O2 `sdl-config --cflags`
+ 
+ sdlscav:	scav.o gfx.o sound.o edit.o anim.o
+ ###	gcc -o sdlscav scav.o gfx.o sound.o edit.o anim.o -lSDL -ldl -lpthread

@@ -1,0 +1,11 @@
+--- sdlscav-145/names.h~	2008-11-07 19:37:45.000000000 -0500
++++ sdlscav-145/names.h	2008-11-07 19:41:07.000000000 -0500
+@@ -9,7 +9,7 @@
+ #if defined(__WIN32__) || defined(WIN32)
+ #define LIBPATH "data"
+ #else
+-#define LIBPATH "data:/usr/local/games/scavenger"
++#define LIBPATH "../data:/usr/share/games/sdlscav:/usr/lib/games/sdlscav:/usr/lib64/games/sdlscav"
+ #endif
+ #endif
+ 
