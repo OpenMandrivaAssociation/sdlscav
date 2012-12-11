@@ -77,3 +77,50 @@ rm -rf %{buildroot}
 %_miconsdir/%{name}.xpm
 %_iconsdir/%{name}.xpm
 %_liconsdir/%{name}.xpm
+
+
+%changelog
+* Sun Sep 20 2009 Thierry Vignaud <tvignaud@mandriva.com> 145-4mdv2010.0
++ Revision: 445093
+- rebuild
+
+* Fri Dec 05 2008 Zombie Ryushu <ryushu@mandriva.org> 145-3mdv2009.1
++ Revision: 310699
+- Fix odds quotation that don't belong.
+- Fix Desktop shortcut
+
+* Wed Nov 12 2008 Zombie Ryushu <ryushu@mandriva.org> 145-2mdv2009.1
++ Revision: 302450
+- Release Increment
+- Fix xdg menu again
+- Fix MDV Compiance for XDG Menu
+- Fix Menu Entry and Build Requires
+- First Mandriva Package of SDL Port of xscavenger
+- First Mandriva Package of SDL Port of xscavenger
+- import sdlscav
+
+  + Tomasz Pawel Gajc <tpg@mandriva.org>
+    - Patch0: build with %%optflags
+    - make it mdv compiliant
+
+
+* Fri Nov 6 2008 Zombie Ryushu <ryushu@mandriva.org> 145
+- 145
+- First Mandriva Package with Zombie as full maintner
+
+* Fri Jul 20 2007 Sergey V Turchin <zerg at altlinux dot org> 144-alt2
+- fix data locations
+
+* Thu Jul 19 2007 Sergey V Turchin <zerg at altlinux dot org> 144-alt1
+- new version
+
+* Thu Dec 25 2003 Sergey V Turchin <zerg at altlinux dot org> 137-alt3
+- fix menu to launch via soundwrapper
+- cleanup spec
+- rebuild
+
+* Tue Sep 24 2002 Sergey V Turchin <zerg@altlinux.ru> 137-alt2
+- rebuild with gcc3.2
+
+* Fri Jul 06 2001 Sergey V Turchin <zerg@altlinux.ru> 137-alt1
+- first ALT release
