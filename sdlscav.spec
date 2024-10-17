@@ -4,7 +4,7 @@ Version:	145
 Release:	5
 Group:		Games/Arcade
 License:	GPL
-URL:		http://www.xdr.com/dash/scavenger.html
+URL:		https://www.xdr.com/dash/scavenger.html
 Source:		http://www.xdr.com/dash/%{name}-%{version}.tar.bz2
 Source10:	%{name}.16.xpm
 Source11:	%{name}.32.xpm
