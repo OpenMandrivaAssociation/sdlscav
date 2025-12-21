@@ -11,6 +11,7 @@ Source11:	%{name}.32.xpm
 Source12:	%{name}.48.xpm
 Patch0:		%{name}-145-optflags.patch
 Patch1:		%{name}-145-datapath.patch
+BuildRequires:	make
 BuildRequires:	SDL-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
